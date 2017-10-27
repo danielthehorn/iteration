@@ -14,9 +14,14 @@ from iteration import *
 
 #congratulations(names, scores)
 
+
 #scores = [1, 3, 4, 2, 4, 10]
 
+scores = [1, 3, 4, 2, 4]
+
+
 #print sum(scores)
+
 
 #print max(scores)
 
@@ -33,3 +38,9 @@ print sum_outside(num, 2, 4)
 print count_close_remainders(aids, 5)
 
 print double_down(dude, 6)
+
+print max(scores)
+
+print average(scores)
+
+print average_drop_lowest_two(scores)
