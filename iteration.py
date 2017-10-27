@@ -45,12 +45,48 @@ def sum(numbers):
 
 def max(numbers):
 	current_max = numbers[0]
-	for n in numbers:
+	for n in range(0, len(numbers)):
 		if n > current_max:
 			current_max = n
 
 	return current_max
 
-# homework - >
-	# a) write a function that finds the average of the scores
-	# b) write a second function that also finds the average, but drops the lowest 2 scores
+def alternating_sum(numbers):
+	current_total = numbers[0]
+	for n in range(1, len(numbers)):
+		if n % 2 == 0:
+			current_total -= numbers[n]
+		else:
+			current_total += numbers[n]
+	return current_total
+
+def sum_outside(numbers, minimum, maximum):
+	current_total = 0
+	for n in range(0, len(numbers)):
+		if n >= minimum - 1 and n < maximum - 1:
+			t = True
+		else:
+			current_total += numbers[n]
+	return current_total
+
+def count_close_remainders(numbers, divisor):
+	count = 0
+	for n in range(0, len(numbers)):
+		rem = numbers[n] % divisor
+		if rem == divisor - 1 or rem == 0 or rem == 1:
+			count += 1
+	return count
+
+def double_down(numbers, target):
+	output = []
+	previous_number = numbers[0]
+	for n in range(0, len(numbers)):
+		diff = numbers[n] - target
+		if diff >= -3 and diff <= 3:
+			output.append(numbers[n] * 2)
+		elif previous_number > numbers[n]:
+			output.append(numbers[n] * 2)
+		else:
+			output.append(numbers[n])
+		previous_number = numbers[n]
+	return output
