@@ -1,3 +1,4 @@
+import math
 # iteration pattern
 # doing the same thing once for each member of a list
 
@@ -114,3 +115,23 @@ def average_drop_lowest_two(scores):
 	amount = float(len(scores) - 2)
 	av = total / amount
 	return av
+
+def standard_deviation(numbers):
+	av = average(numbers)
+	total_diff = float(0)
+	for n in range(0, len(numbers)):
+		diff = float(numbers[n]) - av
+		squared_diff = diff * diff
+		total_diff += squared_diff
+	variance = total_diff / len(numbers)
+	stdev = math.sqrt(variance)
+	return stdev
+
+def mountain_count(numbers):
+	count = 0
+	for n in range(1, len(numbers-1)):
+		prev_num = numbers[n - 1]
+		next_num = numbers[n + 1]
+		if prev_num < numbers[n] and next_num < numbers[n]:
+			count += 1
+	return count
