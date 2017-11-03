@@ -64,4 +64,22 @@ def list_contains(values, target):
 			return True
 	return False
 
-print most_popular_color(car_colors)
+#print most_popular_color(car_colors)
+
+def most_popular_color_dictionary(colors):
+	color_dict = {}
+	for color in colors:
+		color_exist = color_dict.get(color, None)
+		if not color_exist:
+			color_dict[color] = 1
+		else:
+			color_dict[color] += 1
+	current_largest = 0
+	largest_one = ""
+	for color_name, color_count in color_dict.items():
+		if color_count > current_largest:
+			largest_one = color_name
+			current_largest = color_count
+	return largest_one
+
+print most_popular_color_dictionary(car_colors)
